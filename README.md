@@ -2,8 +2,9 @@
 # Sing Me A Song
 
 > An easy to use application where one can share music videos without needing to sign-up. 
-___
 
+![app-tease](https://user-images.githubusercontent.com/88406069/167486472-e70c18fa-1403-4c2f-9e7a-1108bb8fe9aa.gif)
+  
 ## About the App
 
 _This app allows you to :_ 
@@ -13,7 +14,6 @@ _This app allows you to :_
   - Get a random recommendation
   - Play the videos on any of the categories above
 
-___
 
 ## Technologies which have made this project possible:
 
@@ -27,7 +27,6 @@ ___
   ![Prettier Banner](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
   ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 
-___
 
 ## How to run
 
@@ -58,10 +57,7 @@ $ npm start
 ### This command should open the preview on your main browser.
 ### You can also acess it at : http://localhost:3000/
 
-___
 
 ## back-end repo available at : 
 
 > https://github.com/amontheape/singmeasong_back
-
-___
