@@ -28,15 +28,22 @@ describe("Home Page Tests", () => {
   })
 })
 
+describe("Random Page Tests", () => {
+  it("should list a single random recommendation", () => {
+    cy.intercept("GET", "/recommendations/*").as("getRandom")
+    cy.visit("http://localhost:3000/random")
+
+    cy.wait('@getRandom')
+    cy.get('[data-cy=container]').should( ($container) => expect($container).to.have.length(1))
+  })
+})
+
 describe("Top Page Tests", () => {
-  
   it("should list top recommendations ordered by score", () => {
     cy.intercept("POST", "/recommendations/*/upvote").as("upvoteRec")
     cy.intercept("POST", "/recommendations/*/downvote").as("downvoteRec")
-    // cy.intercept("GET", "/recommendations/top/5").as("getTopRec")
 
     cy.visit("http://localhost:3000/top")
-    // cy.wait('@getTopRec')
 
     const upVoteTestNumber = 5
     for ( let i = 0 ; i < upVoteTestNumber; i++ ) {
