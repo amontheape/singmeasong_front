@@ -7,8 +7,7 @@
         "plugin:react/recommended",
         "plugin:cypress/recommended",
         "airbnb",
-        "prettier",
-        "prettier/react"
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -23,13 +22,13 @@
         "cypress"
     ],
     "rules": {
-        "prettier/prettier" : "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
         "react/jsx-filename-extension": [
             "warn",
             {"extensions": [".js", ".jsx"]}
         ],
         "import/prefer-default-export": "off",
-        "jsx-quotes": ["error", "prefer-single"],
         "jest/expect-expect": "off"
     }
 }
