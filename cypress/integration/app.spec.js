@@ -27,3 +27,30 @@ describe("Home Page Tests", () => {
     cy.get('[data-cy=container]').should( ($container) => expect($container).to.have.length(3))
   })
 })
+
+describe("Top Page Tests", () => {
+  
+  it("should list top recommendations ordered by score", () => {
+    cy.intercept("POST", "/recommendations/*/upvote").as("upvoteRec")
+    cy.intercept("POST", "/recommendations/*/downvote").as("downvoteRec")
+    // cy.intercept("GET", "/recommendations/top/5").as("getTopRec")
+
+    cy.visit("http://localhost:3000/top")
+    // cy.wait('@getTopRec')
+
+    const upVoteTestNumber = 5
+    for ( let i = 0 ; i < upVoteTestNumber; i++ ) {
+      cy.get('[data-cy=upvote]').first().click()
+      cy.wait('@upvoteRec')
+    }
+
+    const downVoteTestNumber = 3
+    for ( let i = 0 ; i < downVoteTestNumber; i++ ) {
+      cy.get('[data-cy=downvote]').last().click()
+      cy.wait('@downvoteRec')
+    }
+
+    cy.get('[data-cy=score]').first().should('contain', upVoteTestNumber)
+    cy.get('[data-cy=score]').last().should('contain', -downVoteTestNumber)
+  })
+})
